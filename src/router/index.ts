@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from "vue-router";
 import Home from '@/views/home/Home.vue'
-import Login from '@/views/login/Login.vue'
+// import Login from '@/views/login/Login.vue'
+import index from '@/views/login/index.vue'
 
 
 // 2. 定义一些路由
@@ -8,7 +9,8 @@ import Login from '@/views/login/Login.vue'
 // 我们后面再讨论嵌套路由。
 const routes = [
     {path: '/', component: Home},
-    {path: '/login', component: Login},
+    {path: '/login', component: index},
+    // {path: '/index', component: index},
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置
