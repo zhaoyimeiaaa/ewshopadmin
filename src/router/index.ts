@@ -3,6 +3,18 @@ import Home from '@/views/home/Home.vue'
 import index from '@/views/login/index.vue'
 import Dashboard from '@/views/dashboard/Dashboard.vue';
 import dashboard from "@/router/modules/dashboard";
+import {RouteRecordRaw} from "vue-router";
+
+//拿子集路由
+const modules: any = import.meta.glob("./modules/**/*.ts", {eager: true});
+const routeModuleList: RouteRecordRaw[] = [];
+
+Object.keys(modules).forEach((key) => {
+    const mod = modules[key].default || {};
+    const modList = Array.isArray(mod) ? [...mod] : [mod];
+    routeModuleList.push(...modList);
+});
+console.log(routeModuleList)
 
 
 // 2. 定义一些路由
@@ -15,7 +27,7 @@ const routes = [
     // {path: '/index', component: index},
 ]
 
-const baseRoutes = [...routes, ...dashboard];
+const baseRoutes = [...routes, ...routeModuleList];
 
 // 3. 创建路由实例并传递 `routes` 配置
 // 你可以在这里输入更多的配置，但我们在这里
@@ -38,4 +50,5 @@ router.beforeEach((to, from, next) => {
     next();
 });
 
+export {routeModuleList};
 export default router;

@@ -8,10 +8,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref,onMounted, } from "vue";
+import { ref,onMounted,h, Component } from "vue";
 import { useRoute, useRouter } from "vue-router";
-// import {routeModuleList}  from "@/router";
-// import {generatorMenu} from "@/utils";
+import {routeModuleList}  from "@/router";
+import {generatorMenu} from "@/utils";
+
 
 
 const defaultKey = ref("");
@@ -25,9 +26,11 @@ onMounted(()=>{
   }
 });
 const router = useRouter();
-// const menuOptions = generatorMenu(routeModuleList);
+const menuOptions = generatorMenu(routeModuleList);
 const handleUpdateValue=(key) =>{
+  console.log(111111)
   // console.log(key,item);
+  console.log(key);
   defaultKey.value = key;
   router.push({name:key});
 };

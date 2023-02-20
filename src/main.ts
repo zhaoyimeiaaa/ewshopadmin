@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from "./router";
 import './style/tailwind.css'
 import './style/index.css'
+
 // 导入 pinia
 import { createPinia } from 'pinia'
 

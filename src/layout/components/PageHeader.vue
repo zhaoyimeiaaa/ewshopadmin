@@ -18,8 +18,8 @@
 
 <script lang="ts" setup>
 import {ref} from "vue";
-// import {renderIcon} from "@/utils";
-// import {logout} from "@/api/auth";
+import {renderIcon} from "@/utils";
+import {logout} from "@/api/auth";
 import {
   LogOutOutline as LogoutIcon
 } from "@vicons/ionicons5";
